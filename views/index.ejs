@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<%- include("header") -%>
+  <body>
+
+<h1><%= kindOfDay %> </h1>
+
+<form action="/delete" method="post">
+  <div class="item first-item">
+    <input type="checkbox" name = "checkbox" value = "<%=itemlist[0]._id %>" onChange="this.form.submit()">
+    <!-- <input id = "hidden-checkbox" type="checkbox" name="checkbox1" value="<%= kindOfDay %>"> -->
+    <input type="hidden" name="checkbox1" value="<%= kindOfDay %>">
+    <p> <%= itemlist[0].name %> </p>
+  </div>
+</form>
+
+  <% for(var i = 1;i<itemlist.length;i++){ %>
+
+  <form action="/delete" method="post">
+    <div class="item">
+      <input type="checkbox" name = "checkbox" value = "<%=itemlist[i]._id %>" onChange="this.form.submit()">
+      <!-- <input id = "hidden-checkbox" type="checkbox" name="checkbox1" value="<%= kindOfDay %>"> -->
+      <input type="hidden" name="checkbox1" value="<%= kindOfDay %>">
+      <p> <%= itemlist[i].name %> </p>
+    </div>
+  </form>
+
+    <% } %>
+
+   <div class="item last-item">
+     <form action = "/"  method="post">
+       <input type="text" name="newtext" autocomplete="off" placeholder="New Item">
+       <button type="submit" name="button" value = <%= kindOfDay %> >+</button>
+     </form>
+   </div>
+
+
+  </body>
+</html>
