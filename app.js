@@ -3,7 +3,7 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 mongoose.set('useFindAndModify', false);
-mongoose.connect('mongodb+srv://hrithik:hrithik@cluster0-p3urr.mongodb.net/todolistDB', {
+mongoose.connect('mongodb://username:password@host:port/database?options...', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
